@@ -30,4 +30,36 @@
     <string name="forgot_password_msg">We just need your registered Email Id to sent you password reset instructions.</string>
     <string name="title_activity_signup">SignupActivity</string>
     <string name="accnt">Bank Account Number</string>
+
+
+    <string name="question1">1. What is the amount you want to invest ?</string>
+    <string name="question1_choice1">Less than 10000</string>
+    <string name="question1_choice2">Greater than 10000 but less than 50000</string>
+    <string name="question1_choice3">Greater than 50000</string>
+
+    <string name="question2">2. What is your salary ?</string>
+
+    <string name="question3">3. What is your age?</string>
+    <string name="question3_choice1">Less than 40</string>
+    <string name="question3_choice2">Between 40 and 60</string>
+    <string name="question3_choice3">Greater than 60</string>
+
+
+    <string name="question4">4. Are you married? </string>
+
+    <string name="question5">5. Do you have a child? </string>
+    <string name="question5_choice1">Yes</string>
+    <string name="question5_choice2">No</string>
+
+    <string name="question6">6. What is the risk quotient you are looking at? </string>
+    <string name="question6_choice1">High</string>
+    <string name="question6_choice2">Medium</string>
+    <string name="question6_choice3">Low</string>
+
+    <string name="question7">7. What is the duration of time for which you can keep the amount invetsed?</string>
+    <string name="question7_choice1">Less than 6 months</string>
+    <string name="question7_choice2">Between 6 to 12 months</string>
+    <string name="question7_choice3">Greater than 12 months</string>
+
+    <string name="question8">8. What is the percentage of return you are expecting?</string>
 </resources>
