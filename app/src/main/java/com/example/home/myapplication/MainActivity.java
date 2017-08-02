@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
         // set the view now
         setContentView(R.layout.activity_main);
-
+        //vivek
         
       //  Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
      //   setSupportActionBar(toolbar);
