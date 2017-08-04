@@ -19,8 +19,7 @@
     android:layout_height="0dp"
     android:layout_weight="10"
     android:background="@color/colorPrimary"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <LinearLayout
         android:id="@+id/quiz_layout"
         android:background="@color/colorPrimary"
