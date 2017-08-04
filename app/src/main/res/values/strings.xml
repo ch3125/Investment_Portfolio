@@ -62,4 +62,10 @@
     <string name="question7_choice3">Greater than 12 months</string>
 
     <string name="question8">8. What is the percentage of return you are expecting?</string>
+    <string name="title_activity_choice">choice</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
 </resources>

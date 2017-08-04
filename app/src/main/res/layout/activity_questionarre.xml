@@ -53,6 +53,7 @@
             android:id="@+id/question1_answer"
             android:layout_width="200dp"
             android:layout_marginLeft="@dimen/activity_vertical_margin"
+            android:textColor="@color/primaryText"
             android:layout_height="wrap_content"
             android:imeOptions="actionDone"
             android:inputType="number" />
@@ -97,6 +98,7 @@
             android:layout_marginLeft="@dimen/activity_vertical_margin"
             android:layout_height="wrap_content"
             android:imeOptions="actionDone"
+            android:textColor="@color/primaryText"
             android:inputType="number" />
         <View
             android:layout_width="match_parent"
@@ -337,6 +339,7 @@
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:imeOptions="actionDone"
+            android:textColor="@color/primaryText"
             android:inputType="number" />
 
 
