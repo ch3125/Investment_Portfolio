@@ -12,8 +12,8 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Questionarre extends AppCompatActivity {
-    //private static final String LOG_TAG = MainActivity.class.getSimpleName();
+public class Questionarre1 extends AppCompatActivity {
+
     private TextView question1;
     private TextView question2;
     private TextView question3;
@@ -27,16 +27,12 @@ public class Questionarre extends AppCompatActivity {
     EditText question1_answer;
     EditText question2_answer ;
     EditText question8_answer;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Hide the keyboard
-        //this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-        setContentView(R.layout.activity_questionarre);
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        setSupportActionBar(myToolbar);
+        setContentView(R.layout.activity_questionarre1);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
     }
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -187,7 +183,7 @@ public class Questionarre extends AppCompatActivity {
             {
                 Toast.makeText(this, "Successful", Toast.LENGTH_SHORT).show();
             }
-                //startActivity(new Intent(this));
+            //startActivity(new Intent(this));
             else {
 
 
@@ -198,14 +194,13 @@ public class Questionarre extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
     public void help1(View view) {
-        Toast.makeText(this, "Please enter a value between 120000 and 1200000", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Please enter a value between 1,20,000 and 12,00,000", Toast.LENGTH_SHORT).show();
     }
     public void help2(View view) {
         Toast.makeText(this, "Please enter a value between 0 and 100", Toast.LENGTH_SHORT).show();
     }
     public void help(View view) {
-        Toast.makeText(this, "Please enter a value between 10000 and 100000", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Please enter a value between 10,000 and 1,00,000", Toast.LENGTH_SHORT).show();
     }
 
 }
-
