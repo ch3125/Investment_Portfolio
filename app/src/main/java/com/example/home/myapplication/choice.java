@@ -36,7 +36,7 @@ public class choice extends AppCompatActivity
     }
     public void questionarre(View v)
     {
-        startActivity(new Intent(choice.this, Questionarre.class));
+        startActivity(new Intent(choice.this, Questionarre1.class));
     }
 
     @Override
@@ -68,7 +68,7 @@ public class choice extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            startActivity(new Intent(choice.this, Questionarre.class));
+            startActivity(new Intent(choice.this, Questionarre1.class));
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
 
@@ -79,6 +79,7 @@ public class choice extends AppCompatActivity
             SharedPreferences.Editor editor = preferences.edit();
             editor.clear();
             editor.commit();
+            startActivity(new Intent(choice.this, MainActivity.class));
         }
 
 

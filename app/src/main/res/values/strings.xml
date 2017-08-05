@@ -37,7 +37,7 @@
     <string name="question1_choice2">Greater than 10000 but less than 50000</string>
     <string name="question1_choice3">Greater than 50000</string>
 
-    <string name="question2">2. What is your salary ?</string>
+    <string name="question2">2. What is your annual income ?</string>
 
     <string name="question3">3. What is your age?</string>
     <string name="question3_choice1">Less than 40</string>
@@ -68,4 +68,5 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+    <string name="title_activity_questionarre1">Questionarre1</string>
 </resources>

@@ -20,10 +20,6 @@
             android:label="@string/title_activity_signup"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Questionarre"
-            android:label="Questionarre"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".choice"
             android:label="@string/title_activity_choice"
             android:parentActivityName=".MainActivity"
@@ -32,6 +28,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.home.myapplication.MainActivity" />
         </activity>
+        <activity
+            android:name=".Questionarre1"
+            android:label="Questionarre"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
