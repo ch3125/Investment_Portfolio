@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="accnt">Bank Account Number</string>
+    <string name="error_valid_email_password">The password and account number combination is not valid</string>
 </resources>
