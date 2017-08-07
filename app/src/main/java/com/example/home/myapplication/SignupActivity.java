@@ -2,19 +2,28 @@ package com.example.home.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.Toast;
+
+import com.example.home.myapplication.DataBase.DatabaseHelper;
+import com.example.home.myapplication.Modal.User;
 
 public class SignupActivity extends AppCompatActivity {
-    private EditText inputEmail, inputPassword;
+    private EditText inputAcct, inputPassword,inputEmail;
     private Button btnSignIn, btnSignUp, btnResetPassword;
     private ProgressBar progressBar;
+    CoordinatorLayout cd;
+    private DatabaseHelper databaseHelper;
+    private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,10 +32,14 @@ public class SignupActivity extends AppCompatActivity {
 
         btnSignIn = (Button) findViewById(R.id.sign_in_button);
         btnSignUp = (Button) findViewById(R.id.sign_up_button);
-        inputEmail = (EditText) findViewById(R.id.email);
+        inputAcct = (EditText) findViewById(R.id.accnt_no);
         inputPassword = (EditText) findViewById(R.id.password);
+        inputEmail=(EditText)findViewById(R.id.email);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         btnResetPassword = (Button) findViewById(R.id.btn_reset_password);
+        cd=(CoordinatorLayout)findViewById(R.id.cd);
+        databaseHelper=new DatabaseHelper(getApplicationContext());
+        user=new User();
 
      /*   btnResetPassword.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,7 +55,7 @@ public class SignupActivity extends AppCompatActivity {
             }
         });
 
-    /*    btnSignUp.setOnClickListener(new View.OnClickListener() {
+        btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -66,27 +79,30 @@ public class SignupActivity extends AppCompatActivity {
 
                 progressBar.setVisibility(View.VISIBLE);
                 //create user
-                auth.createUserWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(SignupActivity.this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                Toast.makeText(SignupActivity.this, "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
-                                progressBar.setVisibility(View.GONE);
-                                // If sign in fails, display a message to the user. If sign in succeeds
-                                // the auth state listener will be notified and logic to handle the
-                                // signed in user can be handled in the listener.
-                                if (!task.isSuccessful()) {
-                                    Toast.makeText(SignupActivity.this, "Authentication failed." + task.getException(),
-                                            Toast.LENGTH_SHORT).show();
-                                } else {
-                                    startActivity(new Intent(SignupActivity.this, MainActivity.class));
-                                    finish();
-                                }
-                            }
-                        });
+                if (!databaseHelper.checkUser(inputEmail.getText().toString().trim())) {
+
+                    user.setAcc_no(inputAcct.getText().toString().trim());
+                    user.setEmail(inputEmail.getText().toString().trim());
+                    user.setPassword(inputPassword.getText().toString().trim());
+
+                    databaseHelper.addUser(user);
+
+                    // Snack Bar to show success message that record saved successfully
+                    Snackbar.make(cd, getString(R.string.success_message), Snackbar.LENGTH_LONG).show();
+               //     emptyInputEditText();
+                    progressBar.setVisibility(View.INVISIBLE);
+                    startActivity(new Intent(SignupActivity.this, MainActivity.class));
+
+
+                } else {
+                    // Snack Bar to show error message that record already exists
+                    Snackbar.make(cd, getString(R.string.error_email_exists), Snackbar.LENGTH_LONG).show();
+                    progressBar.setVisibility(View.INVISIBLE);
+                }
+
 
             }
-        });*/
+        });
     }
 
     @Override

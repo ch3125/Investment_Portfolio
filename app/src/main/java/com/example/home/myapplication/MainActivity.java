@@ -90,11 +90,13 @@ public class MainActivity extends AppCompatActivity {
             Intent accountsIntent = new Intent(activity, choice.class);
             accountsIntent.putExtra("EMAIL", inputEmail.getText().toString().trim());
          //   emptyInputEditText();
+            progressBar.setVisibility(View.INVISIBLE);
             startActivity(accountsIntent);
 
 
         } else {
             // Snack Bar to show success message that record is wrong
+            progressBar.setVisibility(View.INVISIBLE);
             Snackbar.make(cd, getString(R.string.error_valid_email_password), Snackbar.LENGTH_LONG).show();
         }
     }

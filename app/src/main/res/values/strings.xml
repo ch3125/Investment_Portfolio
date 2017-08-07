@@ -64,4 +64,9 @@
 
     <string name="question8">8. What is the percentage of return you are expecting?</string>
     <string name="error_valid_email_password">The password and account number combination is not valid</string>
+    <string name="phone">Phone</string>
+    <string name="success_message">Account created successfully</string>
+    <string name="error_email_exists">This email already registered</string>
+    <string name="navigation_drawer_close">close drawer</string>
+    <string name="navigation_drawer_open">open</string>
 </resources>
