@@ -30,7 +30,7 @@
         </activity>
         <activity
             android:name=".Questionarre1"
-            android:label="Questionarre"
+            android:label="Questionnaire"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
