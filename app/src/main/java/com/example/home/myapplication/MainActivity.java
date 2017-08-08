@@ -14,8 +14,6 @@ import android.widget.Toast;
 
 import com.example.home.myapplication.DataBase.DatabaseHelper;
 
-import java.text.ChoiceFormat;
-
 public class MainActivity extends AppCompatActivity {
     private EditText inputEmail, inputPassword;
     private ProgressBar progressBar;
@@ -89,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
 
             Intent accountsIntent = new Intent(activity, choice.class);
             accountsIntent.putExtra("EMAIL", inputEmail.getText().toString().trim());
-         //   emptyInputEditText();
+            //   emptyInputEditText();
             progressBar.setVisibility(View.INVISIBLE);
             startActivity(accountsIntent);
 

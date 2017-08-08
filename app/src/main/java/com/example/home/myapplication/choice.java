@@ -69,7 +69,7 @@ public class choice extends AppCompatActivity
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {
-
+            startActivity(new Intent(choice.this, trends.class));
         } else if (id == R.id.nav_manage) {
             SharedPreferences preferences = getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = preferences.edit();

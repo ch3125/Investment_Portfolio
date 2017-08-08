@@ -31,7 +31,11 @@
         <activity
             android:name=".Questionarre1"
             android:label="Questionnaire"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".trends"
+            android:screenOrientation="landscape"
+            android:label="Spending Trends"
+        />
     </application>
 
 </manifest>
