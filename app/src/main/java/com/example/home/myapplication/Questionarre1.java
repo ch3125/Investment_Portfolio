@@ -186,27 +186,23 @@ public class Questionarre1 extends AppCompatActivity {
             }
             //startActivity(new Intent(this));
             else {
-                Snackbar.make(getCurrentFocus(),"Please answer all the questions properly highlighted in red", Snackbar.LENGTH_SHORT).show();
-                //Toast.makeText(this, "Please answer all the questions properly highlighted in red", Toast.LENGTH_SHORT).show();
+                Snackbar.make(getCurrentFocus(),"Please answer all the questions properly highlighted in red",Snackbar.LENGTH_SHORT);
+                    //Toast.makeText(this, "Please answer all the questions properly highlighted in red", Toast.LENGTH_SHORT).show();
             }
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
-    protected int getOverrideAccentColor() {
-        return Color.parseColor("#00796B");
-    }
     public void help1(View view) {
-        Snackbar.make(view, "Please enter a value between 1,20,000 and 12,00,000", Snackbar.LENGTH_SHORT).show();
+        Snackbar.make(getCurrentFocus(),"Please enter a value between 1,20,000 and 12,00,000",Snackbar.LENGTH_SHORT);
         //Toast.makeText(this, "Please enter a value between 1,20,000 and 12,00,000", Toast.LENGTH_SHORT).show();
     }
     public void help2(View view) {
-        Snackbar.make(view, "Please enter a value between 0 and 100", Snackbar.LENGTH_SHORT).show();
+        Snackbar.make(getCurrentFocus(),"Please enter a value between 0 and 100",Snackbar.LENGTH_SHORT);
         //Toast.makeText(this, "Please enter a value between 0 and 100", Toast.LENGTH_SHORT).show();
     }
     public void help(View view) {
-        Snackbar.make(view, "Please enter a value between 10,000 and 1,00,000", Snackbar.LENGTH_SHORT).show();
+        Snackbar.make(getCurrentFocus(),"Please enter a value between 10,000 and 1,00,000",Snackbar.LENGTH_SHORT);
         //Toast.makeText(this, "Please enter a value between 10,000 and 1,00,000", Toast.LENGTH_SHORT).show();
     }
-
 }
