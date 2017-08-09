@@ -14,5 +14,9 @@ public class trends extends AppCompatActivity {
         ImageView imgView=(ImageView) findViewById(R.id.imageView);
         Drawable drawable  = getResources().getDrawable(R.drawable.cust1_i);
         imgView.setImageDrawable(drawable);
+        ImageView imgView1=(ImageView) findViewById(R.id.imageView1);
+        Drawable drawable1  = getResources().getDrawable(R.drawable.cust1_exp);
+        imgView1.setImageDrawable(drawable1);
+       // FileReader fileReader= getResources().getAssets().open("TCS_DATABASE1");
     }
 }

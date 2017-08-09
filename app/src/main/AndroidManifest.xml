@@ -33,7 +33,7 @@
             android:label="Questionnaire"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".trends"
-            android:screenOrientation="landscape"
+            android:screenOrientation="portrait"
             android:label="Spending Trends"
         />
     </application>
