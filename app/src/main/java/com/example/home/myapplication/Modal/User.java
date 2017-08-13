@@ -21,9 +21,6 @@ public class User {
     public String getPassword() {
         return password;
     }
-
-
-
     public void setCid(int cid) {
         this.cid = cid;
     }

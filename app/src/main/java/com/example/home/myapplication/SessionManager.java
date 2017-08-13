@@ -30,7 +30,7 @@ public class SessionManager {
         private static final String IS_LOGIN = "IsLoggedIn";
 
         // User name (make variable public to access from outside)
-        public static final String KEY_EMAIL = "email";
+        public static final String KEY_ACC_NO = "acc_no";
 
         // Email address (make variable public to access from outside)
         public static final String KEY_PASSWORD = "password";
@@ -41,24 +41,23 @@ public class SessionManager {
             pref = _context.getSharedPreferences(PREF_NAME, PRIVATE_MODE);
             editor = pref.edit();
         }
-    public void createLoginSession(String email, String password){
+    public void createLoginSession(String acc_no, String password){
 
         editor.putBoolean(IS_LOGIN, true);
 
-        // Storing name in pref
+        // Storing password in pref
         editor.putString(KEY_PASSWORD, password);
 
-        // Storing email in pref
-        editor.putString(KEY_EMAIL, email);
+        // Storing acc_no in pref
+        editor.putString(KEY_ACC_NO, acc_no);
 
         // commit changes
         editor.commit();
     }
     public User getUserDetails(){
         User user=new User();
-        user.setEmail(pref.getString(KEY_EMAIL, null));
+        user.setAcc_no(pref.getString(KEY_ACC_NO, null));
         user.setPassword(pref.getString(KEY_PASSWORD,null));
-
         return user;
     }
     public boolean isloggedin(){

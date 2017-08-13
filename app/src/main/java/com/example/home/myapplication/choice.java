@@ -1,8 +1,6 @@
 package com.example.home.myapplication;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -19,6 +17,7 @@ public class choice extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //getIntent().getBooleanExtra()
         setContentView(R.layout.activity_choice);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -41,8 +40,10 @@ public class choice extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        finishAffinity();
-
+        Intent i = new Intent(getApplicationContext(),MainActivity.class);
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        i.putExtra("EXIT",true);
+        startActivity(i);
     }
 
 
@@ -71,14 +72,9 @@ public class choice extends AppCompatActivity
         } else if (id == R.id.nav_slideshow) {
             startActivity(new Intent(choice.this, trends.class));
         } else if (id == R.id.nav_manage) {
-            SharedPreferences preferences = getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE);
-            SharedPreferences.Editor editor = preferences.edit();
-            editor.clear();
-            editor.commit();
-            startActivity(new Intent(choice.this, MainActivity.class));
+            SessionManager session = new SessionManager(getApplicationContext());
+            session.logoutUser();
         }
-
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

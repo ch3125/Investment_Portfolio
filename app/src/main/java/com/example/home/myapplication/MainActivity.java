@@ -25,7 +25,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        if (getIntent().getBooleanExtra("EXIT", false)) {
+            finish();
+        }
 
         // set the view now
         setContentView(R.layout.activity_main);
@@ -98,5 +100,4 @@ public class MainActivity extends AppCompatActivity {
             Snackbar.make(cd, getString(R.string.error_valid_email_password), Snackbar.LENGTH_LONG).show();
         }
     }
-
 }
