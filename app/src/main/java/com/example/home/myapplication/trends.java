@@ -49,6 +49,5 @@ public class trends extends AppCompatActivity {
             default:
                 break;
         }
-       // FileReader fileReader= getResources().getAssets().open("TCS_DATABASE1");
     }
 }

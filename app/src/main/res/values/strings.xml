@@ -69,4 +69,5 @@
     <string name="error_email_exists">This email already registered</string>
     <string name="navigation_drawer_close">close drawer</string>
     <string name="navigation_drawer_open">open</string>
+    <string name="title_activity_offers">offers</string>
 </resources>

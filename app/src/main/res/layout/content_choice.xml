@@ -30,5 +30,6 @@
         android:textSize="96sp"
         android:textColor="@color/colorAccent"
         android:layout_weight="1"
-        android:text="Offers"/>
+        android:text="Offers"
+        android:onClick="offers"/>
 </LinearLayout>
