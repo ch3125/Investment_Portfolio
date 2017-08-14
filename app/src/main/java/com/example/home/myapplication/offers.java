@@ -26,9 +26,57 @@ public class offers extends AppCompatActivity {
         }
         ImageView imgView=(ImageView) findViewById(R.id.imageView);
         ImageView imgView1=(ImageView) findViewById(R.id.imageView1);
-        drawable_investments  = getResources().getDrawable(R.drawable.cust1_i);
-        imgView.setImageDrawable(drawable_investments);
-        drawable_expenses  = getResources().getDrawable(R.drawable.cust1_exp);
-        imgView1.setImageDrawable(drawable_expenses);
+        switch(offers[0])
+        {
+            case "swiggy":
+                drawable_investments  = getResources().getDrawable(R.drawable.swiggyoffer1);
+                imgView.setImageDrawable(drawable_investments);
+                break;
+            case "pizzahut":
+                drawable_investments  = getResources().getDrawable(R.drawable.pizzahutoffer1);
+                imgView.setImageDrawable(drawable_investments);
+                break;
+            case "pantaloons":
+                drawable_investments  = getResources().getDrawable(R.drawable.pantaloonsoffer1);
+                imgView.setImageDrawable(drawable_investments);
+                break;
+            case "paytm":
+                drawable_investments  = getResources().getDrawable(R.drawable.paytmoffer1);
+                imgView.setImageDrawable(drawable_investments);
+                break;
+            case "uber":
+                drawable_investments  = getResources().getDrawable(R.drawable.uberoffer1);
+                imgView.setImageDrawable(drawable_investments);
+                break;
+            case "inox":
+                drawable_investments  = getResources().getDrawable(R.drawable.inoxoffer1);
+                imgView.setImageDrawable(drawable_investments);
+                break;
+        }
+        switch(offers[1]) {
+            case "swiggy":
+                drawable_expenses  = getResources().getDrawable(R.drawable.swiggyoffer2);
+                imgView1.setImageDrawable(drawable_expenses);
+                break;
+            case "pizzahut":
+                drawable_expenses  = getResources().getDrawable(R.drawable.pizzahutoffer2);
+                imgView1.setImageDrawable(drawable_expenses);
+                break;
+            case "pantaloons":
+                drawable_expenses  = getResources().getDrawable(R.drawable.pantaloonsoffer2);
+                imgView1.setImageDrawable(drawable_expenses);
+                break;
+            case "paytm":
+                drawable_expenses  = getResources().getDrawable(R.drawable.paytmoffer1);
+                imgView1.setImageDrawable(drawable_expenses);
+            case "uber":
+                drawable_expenses  = getResources().getDrawable(R.drawable.uberoffer2);
+                imgView1.setImageDrawable(drawable_expenses);
+                break;
+            case "inox":
+                drawable_expenses  = getResources().getDrawable(R.drawable.inoxoffer1);
+                imgView1.setImageDrawable(drawable_expenses);
+                break;
+        }
     }
 }

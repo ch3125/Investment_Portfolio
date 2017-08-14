@@ -15,25 +15,25 @@ public class offer
         double rval1=0.0;
         String res2="";
         double rval2=0.0;
-        
+
         String line = "";
         String cvsSplitBy = ",";
-        
+
         //String f1[]={"Foodpanda","Swiggy","Zomato","JustEat","TastyKhana"};
         String f1[]={"Swiggy","Zomato","Restaurant"};
         //String f2[]={"PizzaHut","Dominos","U.S.Pizza","Eagle Boys Pizza","Papa John's","Smokin Joe's"};
         String f2[]={"PizzaHut","DOMINOS","KFC","Pizza"};
-        
+
         String c1[]={"Uber","Ola"};
         //String c1[]={"Uber","Ola","Meru Cabs","Easy Cabs","Taxi For Sure","Mega Cabs"};
         //String c2[]={"Zoom Car","U Drive","Let Me Drive","Revv"};
         String s1[]={"Pantaloons","Spencers","Shoppers"};
         String s2[]={"Paytm","Mall","Bazaar","Shop"};
-        
+
         String m1[]={"Inox","cinemas","pvr","cinepolis","cinemax"};
-        
+
         int i=0;
-        
+
         //food
         double maxf=0;
         String mf="";
@@ -50,18 +50,18 @@ public class offer
             }
         }
         catch(Exception e){}
-        
+
         for(i=0;i<3;i++)
             if(mf.equalsIgnoreCase(f1[i]))
-                mf="swiggy.jpeg";
+                mf="swiggy";
         for(i=0;i<4;i++)
             if(mf.equalsIgnoreCase(f2[i]))
-                mf="pizzahut.jpeg";
-        
+                mf="pizzahut";
+
         res1=mf;
         rval1=maxf;
-      // System.out.println("Max ="+maxf +" "+mf); 
-        
+        // System.out.println("Max ="+maxf +" "+mf);
+
         //Shopping
         double maxs=0;
         String ms="";
@@ -78,14 +78,14 @@ public class offer
             }
         }
         catch(Exception e){}
-        
+
         for(i=0;i<3;i++)
             if(ms.equalsIgnoreCase(s1[i]))
-                ms="pantaloons.jpeg";
+                ms="pantaloons";
         for(i=0;i<4;i++)
             if(ms.equalsIgnoreCase(s2[i]))
-                ms="paytm.jpeg";
-        
+                ms="paytm";
+
         if(maxs>rval1)
         {
             rval2=rval1;
@@ -98,15 +98,15 @@ public class offer
             rval2=maxs;
             res2=ms;
         }
-       //System.out.println("Max ="+maxs +" "+ms); 
-        
-        
+        //System.out.println("Max ="+maxs +" "+ms);
+
+
         //cabs
         double maxc=0;
         String mc="";
         try{
-        BufferedReader br1 = new BufferedReader(new InputStreamReader(context.getAssets().open(get_cab(c))));
-        while ((line = br1.readLine()) != null)
+            BufferedReader br1 = new BufferedReader(new InputStreamReader(context.getAssets().open(get_cab(c))));
+            while ((line = br1.readLine()) != null)
             {
                 String[] x = line.split(cvsSplitBy);
                 if(Double.parseDouble(x[2])+200*Double.parseDouble(x[1])>maxc)
@@ -115,7 +115,7 @@ public class offer
                     mc=x[0];
                 }
             }
-            mc="uber.jpeg";
+            mc="uber";
         }
         catch(Exception e){}
         if(maxc>rval1)
@@ -130,14 +130,14 @@ public class offer
             rval2=maxc;
             res2=mc;
         }
-       //System.out.println("Max ="+maxc +" "+mc); 
-            
+        //System.out.println("Max ="+maxc +" "+mc);
+
         //movie
         double maxm=0.0;
         String mm="";
         try{
-        BufferedReader br4 = new BufferedReader(new InputStreamReader(context.getAssets().open(get_movie(c))));
-        while ((line = br4.readLine()) != null)
+            BufferedReader br4 = new BufferedReader(new InputStreamReader(context.getAssets().open(get_movie(c))));
+            while ((line = br4.readLine()) != null)
             {
                 String[] x = line.split(cvsSplitBy);
                 if(Double.parseDouble(x[2])+200*Double.parseDouble(x[1])>maxm)
@@ -146,7 +146,7 @@ public class offer
                     mm=x[0];
                 }
             }
-            mm="inox.jpeg";
+            mm="inox";
         }
         catch(Exception e){}
         if(maxm>rval1)
