@@ -17,6 +17,8 @@ import android.widget.Toast;
 import com.example.home.myapplication.DataBase.DatabaseHelper;
 import com.example.home.myapplication.Modal.User;
 
+import java.util.ArrayList;
+
 public class SignupActivity extends AppCompatActivity {
     private EditText inputAcct, inputPassword,inputEmail;
     private Button btnSignIn, btnSignUp, btnResetPassword;
@@ -24,6 +26,7 @@ public class SignupActivity extends AppCompatActivity {
     CoordinatorLayout cd;
     private DatabaseHelper databaseHelper;
     private User user;
+    ArrayList<String> account_database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,13 +43,15 @@ public class SignupActivity extends AppCompatActivity {
         cd=(CoordinatorLayout)findViewById(R.id.cd);
         databaseHelper=new DatabaseHelper(getApplicationContext());
         user=new User();
+        account_database=new ArrayList<>();
+        account_database.add("14516380001");
+        account_database.add("14516380002");
+        account_database.add("14516380003");
+        account_database.add("14516380004");
+        account_database.add("14516380005");
 
-     /*   btnResetPassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(SignupActivity.this, ResetPasswordActivity.class));
-            }
-        });*/
+
+
 
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,9 +66,18 @@ public class SignupActivity extends AppCompatActivity {
 
                 String email = inputEmail.getText().toString().trim();
                 String password = inputPassword.getText().toString().trim();
+                String acct = inputAcct.getText().toString().trim();
 
                 if (TextUtils.isEmpty(email)) {
                     Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (TextUtils.isEmpty(acct)) {
+                    Toast.makeText(getApplicationContext(), "Enter Account Number", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(!account_database.contains(acct)){
+                    Toast.makeText(getApplicationContext(), "Invalid Account Number", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
