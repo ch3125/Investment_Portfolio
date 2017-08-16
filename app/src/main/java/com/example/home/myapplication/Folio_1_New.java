@@ -5,11 +5,8 @@ import android.content.Context;
 import com.example.home.myapplication.Modal.User;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.PrintWriter;
 
 public class Folio_1_New
 {
@@ -26,30 +23,22 @@ public class Folio_1_New
     int already_invested_moderate=0;
     int already_invested_low=0;
     int already_invested_high=0;
-    String cust1_path="cust1_inv.csv";
-    String cust2_path="cust2_inv.csv";
-    String cust3_path="cust3_inv.csv";
-    String cust4_path="cust3_inv.csv";
-    String low_inv="LOW.csv";
-    String moderate_inv="MODERATE.csv";
-    String high_inv="HIGH.csv";
-    String output="output.csv";
     double max_period=0;
     BufferedReader br = null;
     Context context;
-    public void initializer(String cus,int a,int ai,int ag,char m,char c,double d,char r)
+    public void initializer(String a,String ai,String ag,String m,String c,String d,String r)
     {
-        cust_id=cus;
-        annual_income=a;
-        amount_invested=ai;
-        age=ag;
-        marital_status=m;
-        child_status=c;
-        duration=d;
-        risk_quotient=r;
+
+        annual_income=Integer.parseInt(a);
+        amount_invested=Integer.parseInt(ai);
+        age=Integer.parseInt(ag);
+        marital_status=m.charAt(0);
+        child_status=c.charAt(0);
+        duration=Double.parseDouble(d);
+        risk_quotient=r.charAt(0);
     }
 
-    public void portfolioA() throws IOException
+    public String[][] portfolioA() throws IOException
     {
         int flag=0;
         String result="";
@@ -76,7 +65,7 @@ public class Folio_1_New
             }
         }
         if(flag==0)
-            result="flop";
+            result="Sorry.You cannot receive a reasonable reccomendation based on your inputs.";
         if(flag>=3)
             result=result.substring(0,result.length()-1);
         perc_return=(sum/flag);
@@ -88,9 +77,16 @@ public class Folio_1_New
             amt_each=(0.25* amount_invested)+","+(0.25* amount_invested)+","+(0.25* amount_invested)+","+(0.25* amount_invested);
         else
             amt_each=""+(amount_invested);
-        writer(result,amt_each,perc_return,'A');
 
-
+        String arr[][]=new String[3][5];
+        String row1[]=result.split(",");
+        String row2[]=amt_each.split(",");
+        for(int i=0;i<row1.length;i++)
+            arr[0][i]=row1[i];
+        for(int i=0;i<row2.length;i++)
+            arr[1][i]=row2[i];
+        arr[2][0]=Double.toString(perc_return);
+        return arr;
 
 
     }
@@ -218,7 +214,7 @@ public class Folio_1_New
 
 
 
-    public void calculater50(double l, double m, double h, int n,char ids)throws IOException
+    public String[][] calculater50(double l, double m, double h, int n,char ids)throws IOException
     {
 
         double perc_return=0;
@@ -377,18 +373,22 @@ public class Folio_1_New
             result=result.substring(0,result.length()-1);
         }
 
-        writer(result,amt_each,perc_return,ids);
+
+        String arr[][]=new String[3][5];
+        String row1[]=result.split(",");
+        String row2[]=amt_each.split(",");
+        for(int i=0;i<row1.length;i++)
+            arr[0][i]=row1[i];
+        for(int i=0;i<row2.length;i++)
+            arr[1][i]=row2[i];
+        arr[2][0]=Double.toString(perc_return);
+        return arr;
 
 
     }
-
     public Folio_1_New(Context context)
     {
         this.context=context;
-    }
-    public Folio_1_New()
-    {
-
     }
     public void portfolioC()throws IOException//FD,LIC is low/ MUTUAL is Moderate/ EQUITY is high
     {
@@ -529,50 +529,4 @@ public class Folio_1_New
 
 
     }
-
-    int i=44;
-    public void writer(String result,String each_amt,double perc,char id)throws IOException,FileNotFoundException
-    {
-
-        PrintWriter pw = new PrintWriter(new FileWriter("output.csv",true));
-        StringBuilder sb = new StringBuilder();
-        sb.append(id);
-        sb.append('\n');
-        sb.append(result);
-        sb.append('\n');
-        sb.append(each_amt);
-        sb.append('\n');
-
-        sb.append(perc);
-        sb.append('\n');
-
-        //sb.append(ipp++);
-        sb.append('\n');
-        sb.append('\n');
-        sb.append('\n');
-        sb.append('\n');
-        pw.write(sb.toString());
-        pw.close();
-
-    }
-    public static void main(String []args)throws IOException
-    {
-        Folio_1_New f=new Folio_1_New();
-        f.initializer("cust2", 1000000, 400000, 45, 'y', 'y', 1, 'l');// try random inputs here for now
-        f.portfolioA();
-        f.portfolioB();
-        f.portfolioC();
-
-    }
-
-
-
-
-
-
-
-
 }
-    
-    
-

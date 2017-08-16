@@ -161,7 +161,6 @@ public class offer
             rval2=maxm;
             res2=mm;
         }
-
         //System.out.println("Max ="+maxm +"maxm=   "+mm); 
         result[0]=res1;
         result[1]=res2;
