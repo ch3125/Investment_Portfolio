@@ -1,5 +1,6 @@
 package com.example.home.myapplication;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
@@ -12,7 +13,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class Questionarre1 extends AppCompatActivity {
 
@@ -26,6 +26,7 @@ public class Questionarre1 extends AppCompatActivity {
     private TextView question8;
     private RadioGroup g;
     private CoordinatorLayout cd;
+    private String[] input;
     //private boolean flag=false;
     EditText question1_answer;
     EditText question2_answer ;
@@ -185,7 +186,52 @@ public class Questionarre1 extends AppCompatActivity {
             }
             if(!flag)
             {
-                Toast.makeText(this, "Successful", Toast.LENGTH_SHORT).show();
+                String a,married,child,risk,dur;
+                String investment = ((EditText) findViewById(R.id.question1_answer)).getText().toString().trim();
+                String income = ((EditText) findViewById(R.id.question2_answer)).getText().toString().trim();
+                g= (RadioGroup) findViewById(R.id.radio1);
+                int age = g.getCheckedRadioButtonId();
+                //Toast.makeText(this,Integer.toString(age),Toast.LENGTH_SHORT).show();
+                if(age==R.id.question3_choice1)
+                    a = "35";
+                else if(age==R.id.question3_choice2)
+                    a="45";
+                else
+                    a="60";
+                g= (RadioGroup) findViewById(R.id.radio2);
+                int mar=g.getCheckedRadioButtonId();
+                if(mar==R.id.question4_choice1)
+                    married="y";
+                else
+                    married="n";
+                g= (RadioGroup) findViewById(R.id.radio3);
+                int c = g.getCheckedRadioButtonId();
+                if(c==R.id.question5_choice1)
+                    child="y";
+                else
+                    child="n";
+                g = (RadioGroup) findViewById(R.id.radio4);
+                int ris= g.getCheckedRadioButtonId();
+                if(ris==R.id.question6_choice1)
+                    risk="h";
+                else if(ris==R.id.question6_choice2)
+                    risk="m";
+                else
+                    risk="l";
+                g = (RadioGroup) findViewById(R.id.radio5);
+                int d= g.getCheckedRadioButtonId();
+                if(d==R.id.question7_choice1)
+                    dur="0.33";
+                else if(d==R.id.question7_choice2)
+                    dur="0.67";
+                else
+                    dur="1";
+                input = new String[]{income,investment,a,married,child,dur,risk};
+                Bundle b = new Bundle();
+                b.putStringArray("key",input);
+                Intent i = new Intent(this,choice.class);
+                i.putExtras(b);
+                //Toast.makeText(this, a, Toast.LENGTH_SHORT).show();
             }
             //startActivity(new Intent(this));
             else {

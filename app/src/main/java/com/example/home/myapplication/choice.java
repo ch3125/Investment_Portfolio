@@ -66,7 +66,7 @@ public class choice extends AppCompatActivity
             startActivity(new Intent(choice.this, Questionarre1.class));
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
-
+            startActivity(new Intent(choice.this, offers.class));
         } else if (id == R.id.nav_slideshow) {
             startActivity(new Intent(choice.this, trends.class));
         } else if (id == R.id.nav_manage) {

@@ -87,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
     }
     @Override
     public void onBackPressed() {
+        finish();
         moveTaskToBack(true);
     }
     private void verifyFromSQLite() {
