@@ -36,7 +36,11 @@
             android:name=".trends"
             android:label="Spending Trends"
             android:screenOrientation="portrait" />
-        <activity android:name=".offers"></activity>
+        <activity android:name=".offers" />
+        <activity
+            android:name=".Portfolio"
+            android:label="@string/title_activity_portfolio"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

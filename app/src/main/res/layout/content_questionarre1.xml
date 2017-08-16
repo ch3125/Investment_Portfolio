@@ -281,20 +281,20 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:checked="false"
-                    android:text="@string/question7_choice1" />
+                    android:text="Less than 12 months" />
 
                 <RadioButton
                     android:id="@+id/question7_choice2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:checked="false"
-                    android:text="@string/question7_choice2" />
+                    android:text="Between 1 and 3 years" />
                 <RadioButton
                     android:id="@+id/question7_choice3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:checked="false"
-                    android:text="@string/question7_choice3" />
+                    android:text="Greater than 3 years" />
             </RadioGroup>
             <View
                 android:layout_width="match_parent"
