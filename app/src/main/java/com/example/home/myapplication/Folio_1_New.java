@@ -23,6 +23,14 @@ public class Folio_1_New
     int already_invested_moderate=0;
     int already_invested_low=0;
     int already_invested_high=0;
+    String cust1_path="cust1_inv.csv";
+    String cust2_path="cust2_inv.csv";
+    String cust3_path="cust3_inv.csv";
+    String cust4_path="cust4_inv.csv";
+    String low_inv="LOW.csv";
+    String moderate_inv="MODERATE.csv";
+    String high_inv="HIGH.csv";
+    String output="output.csv";
     double max_period=0;
     BufferedReader br = null;
     Context context;
@@ -94,7 +102,7 @@ public class Folio_1_New
 
 
 
-    public void portfolioB()throws IOException
+    public String[][] portfolioB()throws IOException
     {
         int age_in;
         if(age>=0 && age<=40)
@@ -186,16 +194,18 @@ public class Folio_1_New
         high_amt=(high)*amount_invested;
 
         double overall_sum=0;
-
+        String arr[][]=new String[3][5];
         if(low>=0.5)
-            calculater50(low_amt,med_amt,high_amt,1,'B');
+            arr=calculater50(low_amt,med_amt,high_amt,1,'B');
         else if(med>=0.5)
-            calculater50(low_amt,med_amt,high_amt,2,'B');
+            arr=calculater50(low_amt,med_amt,high_amt,2,'B');
         else if(high>=0.5)
-            calculater50(low_amt,med_amt,high_amt,3,'B');
+            arr=calculater50(low_amt,med_amt,high_amt,3,'B');
 
         if(low<0.5&&med<0.5&&high<0.5)
-            calculater50(low_amt,med_amt,high_amt,-1,'B');
+            arr=calculater50(low_amt,med_amt,high_amt,-1,'B');
+
+        return arr;
     }
 
 
@@ -386,11 +396,16 @@ public class Folio_1_New
 
 
     }
+
     public Folio_1_New(Context context)
     {
         this.context=context;
     }
-    public void portfolioC()throws IOException//FD,LIC is low/ MUTUAL is Moderate/ EQUITY is high
+    public Folio_1_New()
+    {
+
+    }
+    public String[][] portfolioC()throws IOException//FD,LIC is low/ MUTUAL is Moderate/ EQUITY is high
     {
         SessionManager sessionManager= new SessionManager(context);
         User user = new User();sessionManager.getUserDetails();
@@ -515,18 +530,32 @@ public class Folio_1_New
         high_amt=(high)*amount_invested;
 
 
+        String arr[][]=new String[3][5];
 
         if(low>=0.5)
-            calculater50(low_amt,med_amt,high_amt,1,'C');
+            arr=calculater50(low_amt,med_amt,high_amt,1,'C');
         if(med>=0.5)
-            calculater50(low_amt,med_amt,high_amt,2,'C');
+            arr=calculater50(low_amt,med_amt,high_amt,2,'C');
         if(high>=0.5)
-            calculater50(low_amt,med_amt,high_amt,3,'C');
+            arr=calculater50(low_amt,med_amt,high_amt,3,'C');
 
         if(low<0.5&&med<0.5&&high<0.5)
-            calculater50(low_amt,med_amt,high_amt,-1,'C');
+            arr=calculater50(low_amt,med_amt,high_amt,-1,'C');
 
 
-
+        return arr;
     }
+
+
+
+
+
+
+
+
+
+
 }
+
+
+

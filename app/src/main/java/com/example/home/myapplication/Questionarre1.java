@@ -197,7 +197,7 @@ public class Questionarre1 extends AppCompatActivity {
                 else if(age==R.id.question3_choice2)
                     a="45";
                 else
-                    a="60";
+                    a="65";
                 g= (RadioGroup) findViewById(R.id.radio2);
                 int mar=g.getCheckedRadioButtonId();
                 if(mar==R.id.question4_choice1)
@@ -221,16 +221,19 @@ public class Questionarre1 extends AppCompatActivity {
                 g = (RadioGroup) findViewById(R.id.radio5);
                 int d= g.getCheckedRadioButtonId();
                 if(d==R.id.question7_choice1)
-                    dur="0.33";
+                    dur="1.2";
                 else if(d==R.id.question7_choice2)
-                    dur="0.67";
+                    dur="2";
                 else
-                    dur="1";
+                    dur="4";
                 input = new String[]{income,investment,a,married,child,dur,risk};
                 Bundle b = new Bundle();
                 b.putStringArray("key",input);
-                Intent i = new Intent(this,choice.class);
+                Intent i = new Intent(this,Portfolio.class);
                 i.putExtras(b);
+                startActivity(i);
+                //getApplicationContext().startActivity(i);
+                //startActivity(new Intent(this, Portfolio.class));
                 //Toast.makeText(this, a, Toast.LENGTH_SHORT).show();
             }
             //startActivity(new Intent(this));
