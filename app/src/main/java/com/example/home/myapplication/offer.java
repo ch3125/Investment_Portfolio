@@ -28,7 +28,7 @@ public class offer
         //String c1[]={"Uber","Ola","Meru Cabs","Easy Cabs","Taxi For Sure","Mega Cabs"};
         //String c2[]={"Zoom Car","U Drive","Let Me Drive","Revv"};
         String s1[]={"Pantaloons","Spencers","Shoppers"};
-        String s2[]={"Paytm","Mall","Bazaar","Shop"};
+        String s2[]={"Paytm","Mall","Bazaar","Shop","Amazon","Flipkart"};
 
         String m1[]={"Inox","cinemas","pvr","cinepolis","cinemax"};
 
@@ -82,7 +82,7 @@ public class offer
         for(i=0;i<3;i++)
             if(ms.equalsIgnoreCase(s1[i]))
                 ms="pantaloons";
-        for(i=0;i<4;i++)
+        for(i=0;i<6;i++)
             if(ms.equalsIgnoreCase(s2[i]))
                 ms="paytm";
 
