@@ -142,7 +142,7 @@ public class Questionarre1 extends AppCompatActivity {
             }
             question1_answer = (EditText)findViewById(R.id.question1_answer);
             try{
-                if(question1_answer.getText().toString().length()==0 || Long.parseLong(question1_answer.getText().toString())>100000 || Long.parseLong(question1_answer.getText().toString())<10000)
+                if(question1_answer.getText().toString().length()==0 || Long.parseLong(question1_answer.getText().toString())>1000000 || Long.parseLong(question1_answer.getText().toString())<10000)
                 {
                     question1 = (TextView) findViewById(R.id.question1);
                     question1.setTextColor(Color.parseColor("#f44336"));
@@ -164,7 +164,7 @@ public class Questionarre1 extends AppCompatActivity {
             }
             question2_answer = (EditText)findViewById(R.id.question2_answer);
             try{
-                if(question2_answer.getText().toString().length()==0 || Long.parseLong(question2_answer.getText().toString())>1200000 || Long.parseLong(question2_answer.getText().toString())<120000)
+                if(question2_answer.getText().toString().length()==0 || Long.parseLong(question2_answer.getText().toString())>5000000 || Long.parseLong(question2_answer.getText().toString())<120000)
                 {
                     question2 = (TextView) findViewById(R.id.question2);
                     question2.setTextColor(Color.parseColor("#f44336"));
@@ -243,7 +243,7 @@ public class Questionarre1 extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
     public void help1(View view) {
-        Snackbar.make(cd,"Please enter a value between 1,20,000 and 12,00,000",Snackbar.LENGTH_SHORT).show();
+        Snackbar.make(cd,"Please enter a value between 1,20,000 and 50,00,000",Snackbar.LENGTH_SHORT).show();
         //Toast.makeText(this, "Please enter a value between 1,20,000 and 12,00,000", Toast.LENGTH_SHORT).show();
     }
     public void help2(View view) {
@@ -251,7 +251,7 @@ public class Questionarre1 extends AppCompatActivity {
         //Toast.makeText(this, "Please enter a value between 0 and 100", Toast.LENGTH_SHORT).show();
     }
     public void help(View view) {
-        Snackbar.make(cd,"Please enter a value between 10,000 and 1,00,000",Snackbar.LENGTH_SHORT).show();
+        Snackbar.make(cd,"Please enter a value between 10,000 and 10,00,000",Snackbar.LENGTH_SHORT).show();
         //Toast.makeText(this, "Please enter a value between 10,000 and 1,00,000", Toast.LENGTH_SHORT).show();
     }
 }
