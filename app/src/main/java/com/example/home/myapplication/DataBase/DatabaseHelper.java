@@ -116,8 +116,6 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         cursor.close();
         db.close();
         return userList;
-
-
 }
     /**
      * This method to update user record
@@ -225,8 +223,18 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         if (cursorCount > 0) {
             return true;
         }
-
         return false;
     }
+    public String get_acc_no(String email, String password)
+    {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String selection = "select " + COLUMN_ACC_NO + " from " + TABLE_USER + " where " + COLUMN_USER_EMAIL + " = '" + email +
+                "' AND " + COLUMN_USER_PASSWORD + "= '" + password+"'";
+        Cursor cursor= db.rawQuery(selection,null);
+        if(cursor.moveToFirst())
+        {
+            return cursor.getString(cursor.getColumnIndex(COLUMN_ACC_NO));
+        }
+        return "";
+    }
 }
-

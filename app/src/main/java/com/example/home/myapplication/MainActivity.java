@@ -20,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
     private Button btnSignup, btnLogin, btnReset;
     private DatabaseHelper databaseHelper;
     CoordinatorLayout cd;
+    private SessionManager session;
+    private boolean flag=false;
     private final AppCompatActivity activity = MainActivity.this;
 
     @Override
@@ -28,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
         if (getIntent().getBooleanExtra("EXIT", false)) {
             finish();
         }
-
         // set the view now
         setContentView(R.layout.activity_main);
         //vivek
@@ -44,18 +45,22 @@ public class MainActivity extends AppCompatActivity {
         btnReset = (Button) findViewById(R.id.btn_reset_password);
         databaseHelper=new DatabaseHelper(activity);
         cd=(CoordinatorLayout)findViewById(R.id.cdlayout);
-
+        session = new SessionManager(getApplicationContext());
+            if (session.isloggedin() && !(getIntent().getBooleanExtra("EXIT", false))) {
+                //Toast.makeText(this,"Launching choice",Toast.LENGTH_SHORT).show();
+                Intent accountsIntent = new Intent(activity, choice.class);
+                accountsIntent.putExtra("EMAIL", inputEmail.getText().toString().trim());
+                //   emptyInputEditText();
+                progressBar.setVisibility(View.INVISIBLE);
+                startActivity(accountsIntent);
+            }
         //Get Firebase auth instance
-
         btnSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, SignupActivity.class));
             }
         });
-
-
-
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,19 +85,23 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+    @Override
+    public void onBackPressed() {
+        moveTaskToBack(true);
+    }
     private void verifyFromSQLite() {
-
 
         if (databaseHelper.checkUser(inputEmail.getText().toString().trim()
                 , inputPassword.getText().toString().trim())) {
-
-
+            //Toast.makeText(this,databaseHelper.get_acc_no(inputEmail.getText().toString().trim()
+                    //, inputPassword.getText().toString().trim()),Toast.LENGTH_SHORT).show();
+            session.createLoginSession(databaseHelper.get_acc_no(inputEmail.getText().toString().trim()
+                    ,inputPassword.getText().toString().trim()),inputPassword.getText().toString().trim());
             Intent accountsIntent = new Intent(activity, choice.class);
             accountsIntent.putExtra("EMAIL", inputEmail.getText().toString().trim());
             //   emptyInputEditText();
             progressBar.setVisibility(View.INVISIBLE);
             startActivity(accountsIntent);
-
 
         } else {
             // Snack Bar to show success message that record is wrong
