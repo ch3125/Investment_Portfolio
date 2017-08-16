@@ -23,14 +23,14 @@ public class Questionarre1 extends AppCompatActivity {
     private TextView question5;
     private TextView question6;
     private TextView question7;
-    private TextView question8;
+
     private RadioGroup g;
     private CoordinatorLayout cd;
     private String[] input;
     //private boolean flag=false;
     EditText question1_answer;
     EditText question2_answer ;
-    EditText question8_answer;
+ //   EditText question8_answer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -117,29 +117,8 @@ public class Questionarre1 extends AppCompatActivity {
                 question7.setTextColor(Color.parseColor("#263238"));
                 //flag=false;
             }
-            question8_answer = (EditText)findViewById(R.id.question8_answer);
-            try{
-                if(question8_answer.getText().toString().length()==0 || Long.parseLong(question8_answer.getText().toString())>100 || Long.parseLong(question8_answer.getText().toString())<1 )
-                {
-                    question8 = (TextView) findViewById(R.id.question8);
-                    question8.setTextColor(Color.parseColor("#f44336"));
-                    question8.setText(question8.getText()+"");
-                    flag=true;
-                    //Toast.makeText(this, "in if", Toast.LENGTH_SHORT).show();
-                }
-                else
-                {
-                    question8 = (TextView) findViewById(R.id.question8);
-                    question8.setTextColor(Color.parseColor("#263238"));
-                    //Toast.makeText(this, "in else", Toast.LENGTH_SHORT).show();
-                }}
-            catch(Exception e)
-            {
-                question8 = (TextView) findViewById(R.id.question8);
-                question8.setTextColor(Color.parseColor("#f44336"));
-                question8.setText(question8.getText()+"");
-                //Toast.makeText(this, "in catch", Toast.LENGTH_SHORT).show();
-            }
+          //  question8_answer = (EditText)findViewById(R.id.question8_answer);
+
             question1_answer = (EditText)findViewById(R.id.question1_answer);
             try{
                 if(question1_answer.getText().toString().length()==0 || Long.parseLong(question1_answer.getText().toString())>1000000 || Long.parseLong(question1_answer.getText().toString())<10000)
